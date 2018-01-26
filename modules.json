@@ -1,0 +1,14 @@
+[
+    "aolBidAdapter",
+    "appnexusAstBidAdapter",
+    "gumgumBidAdapter",
+    "indexExchangeBidAdapter",
+    "openxBidAdapter",
+    "rhythmoneBidAdapter",
+    "tripleliftBidAdapter",
+    "rubiconBidAdapter",
+    "sharethroughBidAdapter",
+    "sovrnBidAdapter",
+    "spotxBidAdapter",
+    "yieldmoBidAdapter"
+]
