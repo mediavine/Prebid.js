@@ -311,7 +311,7 @@ function buildOXRequest(bids, oxParams, delDomain) {
 
 function buildOXVideoRequest(bids) {
   return bids.map(function(bid) {
-    let url = 'http://' + bid.params.delDomain + '/v/1.0/avjp';
+    let url = '//' + bid.params.delDomain + '/v/1.0/avjp';
     let oxVideoParams = generateVideoParameters(bid);
     return {
       method: 'GET',
