@@ -140,7 +140,7 @@ function interpretResponse (serverResponse, bidRequest) {
     cw: wrapper
   } = serverResponseBody
   let isTestUnit = (bidRequest.data && bidRequest.data.pi === 3 && bidRequest.data.si === 9)
-  let [width, height] = utils.parseSizesInput(bidRequest.sizes)[0].split('x')
+  let [width, height] = bidRequest.data.pi === 2 ? [1,1] : utils.parseSizesInput(bidRequest.sizes)[0].split('x')
 
   if (creativeId) {
     bidResponses.push({
