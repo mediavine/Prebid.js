@@ -30,6 +30,7 @@ var sizeMap = {
   31: '980x120',
   32: '250x360',
   33: '180x500',
+  34: '580x400',
   35: '980x150',
   37: '468x400',
   38: '930x180',
@@ -43,9 +44,11 @@ var sizeMap = {
   59: '320x80',
   60: '320x150',
   61: '1000x1000',
+  64: '580x500',
   65: '640x480',
   67: '320x480',
   68: '1800x1000',
+  69: '480x400',
   72: '320x320',
   73: '320x160',
   78: '980x240',
@@ -66,7 +69,7 @@ var sizeMap = {
   195: '600x300',
   199: '640x200',
   213: '1030x590',
-  214: '980x360',
+  214: '980x360'
 };
 utils._each(sizeMap, (item, key) => sizeMap[item] = key);
 
@@ -112,9 +115,10 @@ export const spec = {
       if (bidRequest.mediaType === 'video') {
         let params = bidRequest.params;
         let size = parseSizes(bidRequest);
+        let page_rf = !params.referrer ? utils.getTopWindowUrl() : params.referrer;
 
         let data = {
-          page_url: !params.referrer ? utils.getTopWindowUrl() : params.referrer,
+          page_url: params.secure ? page_rf.replace(/^http:/i, 'https:') : page_rf,
           resolution: _getScreenResolution(),
           account_id: params.accountId,
           integration: INTEGRATION,
@@ -264,12 +268,16 @@ export const spec = {
         requestId: bidRequest.bidId,
         currency: 'USD',
         creativeId: ad.creative_id,
-        mediaType: ad.creative_type,
         cpm: ad.cpm || 0,
         dealId: ad.deal,
         ttl: 300, // 5 minutes
         netRevenue: config.getConfig('rubicon.netRevenue') || false
       };
+
+      if (ad.creative_type) {
+        bid.mediaType = ad.creative_type;
+      }
+
       if (bidRequest.mediaType === 'video') {
         bid.width = bidRequest.params.video.playerWidth;
         bid.height = bidRequest.params.video.playerHeight;
