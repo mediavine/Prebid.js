@@ -9,6 +9,5 @@
     "rubiconBidAdapter",
     "sharethroughBidAdapter",
     "sovrnBidAdapter",
-    "spotxBidAdapter",
     "yieldmoBidAdapter"
 ]
