@@ -106,6 +106,9 @@ function addPlacement(request) {
   if (request.params && request.params.placementId) {
     placementInfo.ym_placement_id = request.params.placementId
   }
+  if (request.params && request.params.bidFloor) {
+    placementInfo.bidFloor = request.params.bidFloor;
+  }
   return JSON.stringify(placementInfo);
 }
 
