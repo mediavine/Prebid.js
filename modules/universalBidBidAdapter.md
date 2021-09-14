@@ -1,0 +1,1 @@
+# UniversalBid Bid Adapter
