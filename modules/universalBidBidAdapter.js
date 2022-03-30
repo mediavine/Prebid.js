@@ -54,7 +54,7 @@ const spec = {
         uuidVersion: mvTokens.version,
         network: bidderConfig.network
       }),
-      url: bidderConfig.domain,
+      url: `https://${bidderConfig.domain}/bidRequest`,
       method: "POST",
       options: void 0
     };
