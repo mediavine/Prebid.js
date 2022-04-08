@@ -96,7 +96,7 @@ const spec = {
     const bidderConfig = config.getConfig(BIDDER_CODE);
     let qParams = "";
     qParams += `mv_uuid=${mvTokens.mv_uuid}&version=${mvTokens.version}&`;
-    qParams += `src=https://${bidderConfig.domain}&`;
+    qParams += `src=${bidderConfig.domain}&`;
     qParams += `origin=${document.location.origin}&`;
     qParams += `us_privacy=${"TODO"}&`;
     qParams += `network=${bidderConfig.network}&`;
@@ -117,7 +117,6 @@ function getFromAll(key) {
     value = JSON.parse(value);
   } catch (e) {
   }
-  console.log("getFromAll", value);
   return value;
 }
 function saveToAll(key, val) {
