@@ -114,7 +114,7 @@ const spec = {
       return [
         {
           type: "iframe",
-          url: `https://${bidderConfig.domain}/usersync/uvbSync?${qParams}`
+          url: `${bidderConfig.domain}/usersync/uvbSync?${qParams}`
         }
       ];
     }
